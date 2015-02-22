@@ -317,9 +317,9 @@ def main():
     #create filesystems on the non-raw partitions
   create_file_systems()
   if args.preloader:
-    install_preloader(2)
+    install_preloader(args.loadernumber)
   if args.bootloader:
-    install_bootloader(2)
+    install_bootloader(args.loadernumber)
 
   create_mount_points()
   mount_filesystems()
