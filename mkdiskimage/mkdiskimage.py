@@ -238,7 +238,7 @@ def clean_loopback_devices():
 
 def install_preloader(partition_number):
   dd_command = ["dd"]
-  destination = "/dev/loop" + str(args.loopdevice) + "p" + str(partition_number + 1)
+  destination = "/dev/loop" + str(args.loopdevice) + "p" + str(partition_number)
   dd_args = ["if={0}".format(args.preloader),"of={0}".format(destination),"bs=1k","count=256"]
   dd_string = dd_command + dd_args
   if verbose:
@@ -249,7 +249,7 @@ def install_preloader(partition_number):
 
 def install_bootloader(partition_number):
   dd_command = ["dd"]
-  destination = "/dev/loop" + str(args.loopdevice) + "p" + str(partition_number + 1)
+  destination = "/dev/loop" + str(args.loopdevice) + "p" + str(partition_number)
   dd_args = ["if={0}".format(args.bootloader),"of={0}".format(destination),"bs=1k","count=768","seek=256"]
   dd_string = dd_command + dd_args
   if verbose:
